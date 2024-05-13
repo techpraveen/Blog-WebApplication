@@ -1,13 +1,17 @@
-import { Navbar , TextInput , Button } from 'flowbite-react'
+import { Navbar ,Dropdown, TextInput , Button } from 'flowbite-react'
 import React from 'react'
 import { Link , useLocation } from 'react-router-dom'
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { useSelector ,useDispatch } from 'react-redux';
+import { toggleTheme } from '../redux/theme/themeSlice';
 
 
 
 export default function Header() {
     const path = useLocation().pathname;
+    const dispatch = useDispatch();
+    const { theme } = useSelector((state) => state.theme);
 
   return (
     <Navbar className='border-b-2'>
@@ -37,9 +41,12 @@ export default function Header() {
           className='w-12 h-10 hidden sm:inline'
           color='gray'
           pill
+          onClick={()=>
+            dispatch(toggleTheme())
+          }
         
         >
-           <FaMoon />
+            {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
         <Link to='/sign-in'>
             <Button gradientDuoTone='purpleToBlue' outline>
@@ -47,7 +54,7 @@ export default function Header() {
             </Button>
             
           </Link>
-          <Navbar.Toggle/>
+          <Navbar.Toggle/> 
         </div>
         <Navbar.Collapse>
         <Navbar.Link active={path === '/'} as={'div'}>
