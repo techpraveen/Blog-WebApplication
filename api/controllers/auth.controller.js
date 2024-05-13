@@ -82,7 +82,7 @@ export const signup = async (req , res ,next)=>{
               username: name.toLowercase().split(' ').join('')+Math.random().toString(9).slice(-4),
               email,
               password:hashedPassword,
-              profilePicture:googlePhotoUrl,
+              profilePicture:  googlePhotoUrl,
 
             });
             await newUser.save();
