@@ -17,6 +17,7 @@ export default function DashProfile() {
     const [imageFileUrl, setImageFileUrl] = useState(null);
     const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
     const [imageFileUploadError, setImageFileUploadError] = useState(null);
+    const [formData , setFormData]= useState({});
 
 
     const filePickerRef = useRef();
@@ -69,10 +70,27 @@ export default function DashProfile() {
         );
       };
       
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+    if(Object.keys(formData).length===0){
+      return;
+    }
+    try {
+      
+    } catch (error) {
+      
+    }
+
+  }
+  
+      
   return (
     <div className='max-w-lg mx-auto p-3 w-full'>
       <h1 className='my-7 text-center font-semibold text-3xl'>Profile</h1>
-      <form  className='flex flex-col gap-4'>
+      <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input type="file" accept='image/*' onChange={handleImageChange} ref={filePickerRef}
           hidden/>
        <div
@@ -113,25 +131,25 @@ export default function DashProfile() {
         {imageFileUploadError && (
           <Alert color='failure'>{imageFileUploadError}</Alert>
         )}
-        <TextInput
+       <TextInput
           type='text'
           id='username'
           placeholder='username'
           defaultValue={currentUser.username}
-          />
-        
+          onChange={handleChange}
+        />
         <TextInput
           type='email'
           id='email'
           placeholder='email'
           defaultValue={currentUser.email}
-         
+          onChange={handleChange}
         />
         <TextInput
           type='password'
           id='password'
           placeholder='password'
-        
+          onChange={handleChange}
         />
          <Button
           type='submit'
