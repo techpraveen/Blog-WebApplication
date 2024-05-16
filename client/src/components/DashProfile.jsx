@@ -1,4 +1,4 @@
-import { Alert, Button, Modal, ModalBody, TextInput } from 'flowbite-react';
+import { Alert, Button, Modal, TextInput } from 'flowbite-react';
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
 import {
@@ -119,11 +119,11 @@ export default function DashProfile() {
       } else {
         dispatch(updateSuccess(data));
         setUpdateUserSuccess("User's profile upload succesfully");
-        setUpdateUserError(error.message);
        
       }
     } catch (error) {
       dispatch(updateFailure(error.message));
+      setUpdateUserError(error.message);
       
     }
   };
