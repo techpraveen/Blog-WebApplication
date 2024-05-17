@@ -23,6 +23,7 @@ mongoose.connect(
         console.log(err);
     })
 const app = express();
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -36,9 +37,7 @@ app.listen(3000, () => {
   app.use('/api/auth' , authRoutes);
 
 
-  app.use(cors({
-    origin:"/api/auth/google"
-}));
+
 
 
   app.use((err, req,res,next)=>{
