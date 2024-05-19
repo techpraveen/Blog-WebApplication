@@ -8,7 +8,7 @@ import Projects from './pages/Projects'
 import Header from './components/Header'
 import Footer from './components/Footer' 
 import Dashboard from './pages/Dashboard'
-import PrivateRoute from './components/privateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import OnlyAdminPrivateRoute from './components/OnlyAdminPrivateRoute'
 import CreatePost from './pages/createPost'
 import UpdatePost from './pages/UpdatePost'
