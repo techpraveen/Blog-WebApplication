@@ -11,6 +11,9 @@ import Dashboard from './pages/Dashboard'
 import PrivateRoute from './components/privateRoute';
 import OnlyAdminPrivateRoute from './components/OnlyAdminPrivateRoute'
 import CreatePost from './pages/createPost'
+import UpdatePost from './pages/UpdatePost'
+import PostPage from './pages/PostPage'
+import Search from './pages/Search'
 
 
 
@@ -25,12 +28,15 @@ export default function App() {
       <Route path='/sign-in' element={<Signin/>} />
       <Route path='/signup' element={<SignUp/>} />
       <Route path='/projects' element={<Projects/>} />
+      <Route path='/search' element={<Search />} />
      <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />
         </Route> 
         <Route element={<OnlyAdminPrivateRoute />}>
-          <Route path='/create-post' element={<CreatePost/>} />
+          <Route path='/create-post' element={<CreatePost />} />
+          <Route path='/update-post/:postId' element={<UpdatePost />} />
         </Route>
+        <Route path='/post/:postSlug' element={<PostPage/>} />
      
       
     </Routes>
