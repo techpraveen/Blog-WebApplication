@@ -14,6 +14,8 @@ import CreatePost from './pages/createPost'
 import UpdatePost from './pages/UpdatePost'
 import PostPage from './pages/PostPage'
 import Search from './pages/Search'
+import Codind from './pages/Codind'
+import Test from './pages/Test'
 
 
 
@@ -29,6 +31,8 @@ export default function App() {
       <Route path='/signup' element={<SignUp/>} />
       <Route path='/projects' element={<Projects/>} />
       <Route path='/search' element={<Search />} />
+      <Route path='/coding' element={<Codind />} />
+      <Route path='/test' element={<Test />} />
      <Route element={<PrivateRoute />}>
           <Route path='/dashboard' element={<Dashboard />} />
         </Route> 
